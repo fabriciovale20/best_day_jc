@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename= 'favicon.png') }}">
+    <title>Login</title>
+</head>
+<body>
+    <div class="bodyhome">
+        <div style="text-align:center">
+            <h2>Login</h2>
+            <form action="{{ url_for('home') }}" method="POST">
+                <p><input style="text-align:center" type="text" name="usuario" id="usuario" placeholder="Usuário"></p>
+                <p><input style="text-align:center" type="password" name="senha" id="senha" placeholder="Senha"></p>
+                <p><a class="btn btn-primary"><button>Logar</button></a></p>
+            </form>
+            <div class="loginincorreto">
+                {% if incorreto %}
+                    {{ msg }}
+                {% endif %}
+            </div>
+            <div id="duvidas">
+                <p style="font-size:20px"><strong>Dúvidas? Fale com seu professor.</a></strong></p>
+            </div>
+        </div>
+    </div>
+    <!-- Rodapé do site -->
+    <footer id="rodape">
+        <img src="/static/favicon.png" height="30px" width="40px">
+    </footer>
+</body>
+</html>

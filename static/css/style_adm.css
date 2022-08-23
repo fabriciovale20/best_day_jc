@@ -1,0 +1,58 @@
+body {
+    margin: 10px;
+    padding: 0;
+}
+
+.nome > p > input {
+    border-radius: 5px;
+    width: 300px;
+}
+
+.data_nascimento > p > input {
+    border-radius: 5px;
+    width: 90px;
+}
+
+.escola > p > input {
+    border-radius: 5px;
+    width: 300px;
+}
+
+button {
+    background: #000000;
+    color: #fff;
+    font-size: 15px;
+    border: 1px solid #eee;
+    border-radius: 20px; /* Arredonda as bordas do seu botão.*/
+    text-shadow:none;
+    cursor: pointer;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+button:hover {
+    background: #0a4878;
+    color: #fff;
+    border: 1px solid #eee;
+    border-radius: 20px;
+    text-shadow:none;
+    cursor: pointer;
+}
+
+.bts {
+    display: flex;
+}
+
+.escola_lista {
+    display: flex;
+    justify-content: space-around;
+}
+
+.aluno_lista {
+    display: flex;
+    justify-content: space-around;
+}
+
+.preenchimento_incompleto {
+    color: red;
+}

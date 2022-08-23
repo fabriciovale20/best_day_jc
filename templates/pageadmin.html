@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style_adm.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename= 'favicon.png') }}">
+    <title>Administrador</title>
+</head>
+<body>
+    <div>
+      <h2>Cadastrar Aluno</h2> 
+      <form action="{{ url_for('cadastrar') }}" method="POST" id="form-cadastrar">
+        <div class="nome">
+          <p>
+            Nome completo:
+            <input type="text" name="nome_completo" id="nome_completo">
+          </p>
+        </div>
+        <div class="data_nascimento">
+          <p>
+            Data de nascimento:
+            <input type="text" name="data_nascimento" id="data_nascimento">
+          </p>
+        </div>
+        <div class="escola">
+          <p>
+            Escola:
+            <input type="text" name="escola" id="escola">
+          </p>
+        </div>
+      </form>
+      <div class="preenchimento_incompleto">
+        {% if erro_preenchimento %}
+          <p>{{ msg }}</p>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="bts">
+      <button form="form-cadastrar">Cadastrar</button>
+      <form action="{{ url_for('listagem') }}">
+        <button>Lista de Alunos</button>
+      </form>
+      <form action="{{ url_for('home') }}">
+        <button>Voltar</button>
+      </form>
+    </div>
+    
+
+    <div class="listagem">
+      <div class="escola_lista">
+        {% for escola in lista_escolas %}
+          <div>
+            <h1>{{ escola }}</h1>
+          </div>
+        {% endfor %}
+      </div>
+      <div>
+        <div class="aluno_lista">
+          {% for escola in lista_escolas %}
+          <div>
+            {% for aluno in lista_dados %}
+              {% if aluno[3] == escola %}
+               <p>
+                 Aluno: {{ aluno[1] }}<br>
+                  Data de Nascimento: {{ aluno[2] }}<br>
+                  Usuário: {{ aluno[5] }}<br>
+                  Senha: {{ aluno[6] }}
+                </p>
+                <div>
+                  <a href="">Alterar</a>
+                  <a href="">Excluir</a>
+                </div>
+                <hr>
+              {% endif %}
+            {% endfor %}
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+</body>
+</html>

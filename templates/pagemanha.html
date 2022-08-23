@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename= 'favicon.png') }}">
+    <title>Manhã</title>
+</head>
+<body class="pagemanha">
+    <div>
+        <header class="header">
+            <h1 class="titleh1">Manhã</h1>
+            <nav class="nav-menu">
+                <ul class="menu">
+                    <li>
+                        <form action="{{ url_for('manha') }}">
+                            <button id="limpar" value="true">Limpar</button>
+                        </form>
+                    </li>
+                    <li>
+                        <form action="{{ url_for('home') }}">
+                            <button>Voltar</button>
+                        </form>
+                    </li>
+                    <li>
+                        <button form="form-img">Avançar</button>
+                    </li>
+                    <li>
+                        <form action="{{ url_for('home') }}" id="form-home">
+                            <button>Sair</button>
+                        </form>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <section class="section">
+            <p class="frase">{{ nome_aluno }}, escolha 5 atividades que você faz pela MANHÃ:</p>
+            <form action="{{ url_for('manha') }}" method="POST" class="checkbox-image" id="form-img">
+                <div class="imagens">
+                    <div class="img-brincadeira">
+                        <div class="suor">
+                            {% for id, imagem in lista_brincadeiras_suor.items() %}
+                            <label class="label-img">
+                                {% if imagem[1] in brincadeiras_selecionadas_manha %}
+                                    <input type="checkbox" name="{{ id }}" id="{{ id }}" value="{{ imagem[1] }}" checked>
+                                {% else %}
+                                    <input type="checkbox" name="{{ id }}" id="{{ id }}" value="{{ imagem[1] }}">
+                                {% endif %}
+                                <img src="static/brincadeiras/suor/{{ imagem[0] }}">
+                                <p >{{ imagem[1] }}</p>
+                            </label>
+                            {% endfor %}
+                        </div>
+                        <div class="leve">
+                            {% for id, imagem in lista_brincadeiras_leve.items() %}
+                            <label class="label-img">
+                                {% if imagem[1] in brincadeiras_selecionadas_manha %}
+                                    <input type="checkbox" name="{{ id }}" id="{{ id }}" value="{{ imagem[1] }}" checked>
+                                {% else %}
+                                    <input type="checkbox" name="{{ id }}" id="{{ id }}" value="{{ imagem[1] }}">
+                                {% endif %}
+                                <img src="static/brincadeiras/leve/{{ imagem[0] }}">
+                                <p >{{ imagem[1] }}</p>
+                            </label>
+                            {% endfor %}
+                        </div>
+                        <div class="sentado">
+                            {% for id, imagem in lista_brincadeiras_sentado.items() %}
+                            <label class="label-img">
+                                {% if imagem[1] in brincadeiras_selecionadas_manha %}
+                                    <input type="checkbox" name="{{ id }}" id="{{ id }}" value="{{ imagem[1] }}" checked>
+                                {% else %}
+                                    <input type="checkbox" name="{{ id }}" id="{{ id }}" value="{{ imagem[1] }}">
+                                {% endif %}
+                                <img src="static/brincadeiras/sentado/{{ imagem[0] }}">
+                                <p >{{ imagem[1] }}</p>
+                            </label>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </section>
+    </div>
+    <!-- Rodapé do site -->
+    <footer id="rodape">
+        <img src="/static/favicon.png" height="30px" width="40px">
+    </footer>
+</body>
+</html>

@@ -1,0 +1,187 @@
+body, ul, li, p {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    font-size: 1.2rem;
+    font-family: Arial;
+}
+
+.loginincorreto {
+    font-size: 16px;
+    padding: 10px;
+    color: red;
+}
+
+.pagemanha {
+    background-image: url(manhabg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: 105px;
+}
+
+section {
+    margin-bottom: 40px;
+}
+
+.pagedormir {
+    background-image: url(dormirbg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: 105px;
+    color: white;
+    position: fixed;
+}
+
+.frase {
+    font-size: 40px;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.titleh1 {
+    color: white;
+    margin-left: 20px;
+}
+
+.header {
+    background: black;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    max-width: 100%;
+    width: 100vw;
+}
+
+.nav-menu {
+    padding: 20px;
+}
+
+.menu {
+    display: flex;
+}
+
+.menu li {
+    margin-left: 10px;
+}
+
+.menu li a {
+    display: block;
+    padding: 10px;
+}
+
+button {
+    background: #000000;
+    color: #fff;
+    font-size: 15px;
+    width: 100px;
+    height: 25px;
+    border: 1px solid #eee;
+    border-radius: 20px; /* Arredonda as bordas do seu botão.*/
+    text-shadow:none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover {
+    background: #93d0fe;
+    color: #fff;
+    border: 1px solid #eee;
+    border-radius: 20px;
+    text-shadow:none;
+    cursor: pointer;
+}
+
+.atvh2 {
+    text-align: center;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+    margin: 5px;
+}
+
+.label-img > img {
+    width: 230px;
+    height: 170px;
+}
+
+.label-img {
+    padding: 10px;
+    justify-content: center;
+    text-align: center;
+}
+
+.dormir {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+p {
+    text-align: center;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+input {
+    text-align: center;
+    width: 180px;
+    height: 20px;
+    border-radius: 20px;
+}
+
+.imagens > div > div > label > input {
+    visibility: hidden;
+    position: absolute;
+}
+
+.imagens > div > div > label > input + img {
+    cursor:pointer;
+    border:4px solid #EEE;
+    border-radius:15px;
+}
+
+
+.imagens > div > div > label > input:checked + img {
+    border:4px solid #0c00f4;
+}
+
+.imagens > div {
+    padding: 10px;
+    margin-top: 30px;
+}
+
+#rodape {
+    display: flex;
+    position: fixed;
+    color: white;
+    background-color: black;
+    align-items: center;
+    bottom: 0;
+    width: 100%;
+    justify-content: center;
+    font-size: 15px;
+}
+
+.bodyhome {
+    color: rgb(7, 6, 6);
+    line-height: 1.5;
+    font-size: 30px;
+    font-family: Arial;
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    background-image: url(/static/css/homebg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
