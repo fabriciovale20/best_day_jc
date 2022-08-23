@@ -419,4 +419,5 @@ def registrar_dormir(a, a1):
     cursor.execute(comando) # Executa o comando acima de UPDATE
     conexao.commit()
 
-app.run(debug=True)
+if __name__ == "__main__":
+    app.run(debug=True)
