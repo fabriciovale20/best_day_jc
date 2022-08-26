@@ -6,9 +6,9 @@ import unicodedata
 
 conexao = mysql.connector.connect(
     host='us-cdbr-east-06.cleardb.net',
-    user='bb286154411fa7',
-    password='154e569a',
-    database='heroku_92aec6f9279ccfd',
+    user='bf3fbdb6061ea6',
+    password='68d4e3c1',
+    database='heroku_eff0f33c4a6a3bd',
 )
 
 lista_brincadeiras_suor = {}
