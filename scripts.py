@@ -5,10 +5,10 @@ import os
 import unicodedata
 
 conexao = mysql.connector.connect(
-    host='localhost',
-    user='root',
-    password='passwordsql',
-    database='bdmestrado',
+    host='us-cdbr-east-06.cleardb.net',
+    user='bb286154411fa7',
+    password='154e569a',
+    database='heroku_92aec6f9279ccfd',
 )
 
 lista_brincadeiras_suor = {}
