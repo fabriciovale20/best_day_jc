@@ -1,8 +1,8 @@
+import os
+from datetime import datetime
+import unicodedata
 import mysql.connector
 from flask import Flask, render_template, request, redirect
-from datetime import datetime
-import os
-import unicodedata
 
 conexao = mysql.connector.connect(
     host='us-cdbr-east-06.cleardb.net',
