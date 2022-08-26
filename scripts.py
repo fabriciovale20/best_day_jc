@@ -6,9 +6,9 @@ from flask import Flask, render_template, request
 
 conexao = mysql.connector.connect(
     host='us-cdbr-east-06.cleardb.net',
-    user='b6c9caa81e3d9f',
-    password='4b57f5ae',
-    database='heroku_3aba9f8a9a0e874',
+    user='b051c39ae5d253',
+    password='ba97c9af',
+    database='heroku_4560c69d2cc9573',
 )
 
 lista_brincadeiras_suor = {}
