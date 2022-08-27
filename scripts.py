@@ -61,6 +61,8 @@ for imagem in os.listdir(dir_dormir):
 def home():
     global usuario, senha, nome_aluno
 
+    cursor = conexao.cursor()
+
     # Coletando usuário e senha preenchidos no formulário
     usuario = request.form.get('usuario')
     senha = request.form.get('senha')
