@@ -10,6 +10,11 @@ conexao = mysql.connector.connect(
     password='ba97c9af',
     database='heroku_4560c69d2cc9573',
 )
+
+conexao.query('SET GLOBAL connect_timeout=28800')
+conexao.query('SET GLOBAL interactive_timeout=28800')
+conexao.query('SET GLOBAL wait_timeout=28800')
+
 app = Flask(__name__)
 
 cursor = conexao.cursor()
@@ -61,8 +66,6 @@ for imagem in os.listdir(dir_dormir):
 def home():
     global usuario, senha, nome_aluno
 
-    conexao.cursor()
-    
     # Coletando usuário e senha preenchidos no formulário
     usuario = request.form.get('usuario')
     senha = request.form.get('senha')
