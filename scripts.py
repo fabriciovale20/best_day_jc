@@ -99,7 +99,7 @@ def home():
 
 @app.route('/admin')
 def administratador():
-    return render_template('pagadm.html')
+    return render_template('pageadm.html')
 
 @app.route('/listagem', methods=['GET', 'POST'])
 def listagem():
