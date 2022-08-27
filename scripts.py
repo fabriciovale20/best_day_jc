@@ -421,4 +421,5 @@ def registrar_dormir(a, a1):
     conexao.commit()
 
 if __name__ == "__main__":
+    conexao.cursor()
     app.run(debug=True)
