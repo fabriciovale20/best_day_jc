@@ -54,9 +54,9 @@ for imagem in os.listdir(dir_dormir):
         lista_brincadeiras[id] = [imagem, nome]
         id += 1
 
-cursor = conexao.cursor()
-
 app = Flask(__name__)
+
+cursor = conexao.cursor(app)
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
