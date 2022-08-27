@@ -10,6 +10,9 @@ conexao = mysql.connector.connect(
     password='ba97c9af',
     database='heroku_4560c69d2cc9573',
 )
+app = Flask(__name__)
+
+cursor = conexao.cursor()
 
 lista_brincadeiras_suor = {}
 lista_brincadeiras_leve = {}
@@ -53,10 +56,6 @@ for imagem in os.listdir(dir_dormir):
         lista_brincadeiras_dormir[id] = [imagem, nome]
         lista_brincadeiras[id] = [imagem, nome]
         id += 1
-
-app = Flask(__name__)
-
-cursor = conexao.cursor(app)
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
