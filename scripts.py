@@ -9,7 +9,7 @@ conexao = mysql.connector.connect(
     user='b051c39ae5d253',
     password='ba97c9af',
     database='heroku_4560c69d2cc9573',
-    connectio_timeout=1000
+    connection_timeout=1000
 )
 
 app = Flask(__name__)
