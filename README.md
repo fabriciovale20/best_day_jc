@@ -1,6 +1,6 @@
 <h1><a href="https://portfolio-fabriciovale.vercel.app">Questionário: Best Day</a></h1>
 
-    O projeto é uma página web que permite que os alunos realizem login e respondam um questionário sobre suas atividades diárias nos períodos da manhã, tarde, noite e antes de dormir. Além disso, há uma área de administração que permite o cadastro, alteração e exclusão de alunos.
+O projeto é uma página web que permite que os alunos realizem login e respondam um questionário sobre suas atividades diárias nos períodos da manhã, tarde, noite e antes de dormir. Além disso, há uma área de administração que permite o cadastro, alteração e exclusão de alunos.
 
 ## Ferramentas
 <div style="display: inline_block">
