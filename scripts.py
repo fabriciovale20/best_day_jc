@@ -1,15 +1,15 @@
 import os
 from datetime import datetime
+import keybd as key
 import unicodedata
 import mysql.connector
 from flask import Flask, render_template, request
 
 conexao = mysql.connector.connect(
-    host='us-cdbr-east-06.cleardb.net',
-    user='b051c39ae5d253',
-    password='ba97c9af',
-    database='heroku_4560c69d2cc9573',
-    connection_timeout=1000
+    host=key.KEYHOST,
+    user=key.KEYUSER,
+    password=key.KEYPASSWORD,
+    database=key.KEYDATABASE
 )
 
 app = Flask(__name__)
@@ -23,6 +23,7 @@ lista_brincadeiras_dormir = {}
 
 lista_brincadeiras = {}
 
+# DIRETÓRIO DE IMAGENS DAS ATIVIDADES
 dir_suor = './static/brincadeiras/suor'
 dir_leve = './static/brincadeiras/leve'
 dir_sentado = './static/brincadeiras/sentado'
@@ -30,13 +31,13 @@ dir_dormir = './static/brincadeiras/dormir'
 
 id = 0
 
+# COLETAR IMAGENS DAS ATIVIDADES
 for imagem in os.listdir(dir_suor):
     if os.path.isfile(os.path.join(dir_suor, imagem)):
         nome = imagem[:imagem.find('.'):]
         lista_brincadeiras_suor[id] = [imagem, nome]
         lista_brincadeiras[id] = [imagem, nome]
         id += 1
-
 
 for imagem in os.listdir(dir_leve):
     if os.path.isfile(os.path.join(dir_leve, imagem)):
@@ -59,6 +60,7 @@ for imagem in os.listdir(dir_dormir):
         lista_brincadeiras[id] = [imagem, nome]
         id += 1
 
+# PÁGINA INICIAL
 @app.route('/', methods=['GET', 'POST'])
 def home():
     global usuario, senha, nome_aluno
@@ -78,7 +80,7 @@ def home():
     if usuario != None and senha != None:
         for user in lista_dados:
             if user[5] == usuario and user[6] == senha: # Acesso adiministrador
-                if usuario == 'jcadmin' and senha == '123':
+                if usuario == 'admin' and senha == '123':
                     return render_template('pageadmin.html')
                 else: # Caso o login for válido, será redirecionado para a próxima página
                     nome_aluno=user[1]
@@ -99,10 +101,12 @@ def home():
     # Acessando a página pela primeira vez
     return render_template('home.html')
 
+# PÁGINA DE ADMINISTRADOR
 @app.route('/admin')
 def administratador():
     return render_template('pageadm.html')
 
+# LISTAGEMD DE ALUNOS
 @app.route('/listagem', methods=['GET', 'POST'])
 def listagem():
     lista_escolas = []
@@ -115,10 +119,9 @@ def listagem():
         if escola[3] != None and escola[3] not in lista_escolas:
             lista_escolas.append(escola[3])
 
-    print(lista_escolas)
     return render_template('pageadmin.html', lista_dados=lista_dados, lista_escolas=lista_escolas)
 
-
+# CADASTRAR ALUNOS
 @app.route('/cadastrar', methods=['GET', 'POST'])
 def cadastrar():
     nome_completo = request.form.get('nome_completo')
@@ -168,13 +171,13 @@ def cadastrar():
 
     return render_template('pageadmin.html')
 
-
 # Listas para salvar os Checkbox selecionados, para caso retorne para a página anterior, ficar salvo
 brincadeiras_selecionadas_manha = []
 brincadeiras_selecionadas_tarde = []
 brincadeiras_selecionadas_noite = []
 brincadeiras_selecionadas_dormir = []
 
+# SELECIONAR 5 ATIVIDADES DA MANHÃ
 @app.route('/manha', methods=['GET', 'POST'])
 def manha():
     global brincadeiras_selecionadas_manha
@@ -232,7 +235,7 @@ def manha():
         brincadeiras_selecionadas_manha=brincadeiras_selecionadas_manha
         )
 
-
+# SELECIONAR 5 ATIVIDADES DA TARDE
 @app.route('/tarde', methods=['GET', 'POST'])
 def tarde():
     global brincadeiras_selecionadas_tarde
@@ -290,6 +293,7 @@ def tarde():
         brincadeiras_selecionadas_tarde=brincadeiras_selecionadas_tarde
         )
 
+# SELECIONAR 4 ATIVIDADES DA NOITE
 @app.route('/noite', methods=['GET', 'POST'])
 def noite():
     global brincadeiras_selecionadas_noite
@@ -344,6 +348,7 @@ def noite():
         brincadeiras_selecionadas_noite=brincadeiras_selecionadas_noite
         )
 
+# SELECIONAR 1 ATIVIDADE AO DORMIR
 @app.route('/dormir', methods=['GET', 'POST'])
 def dormir():
     global brincadeiras_selecionadas_dormir
@@ -391,7 +396,7 @@ def dormir():
         brincadeiras_selecionadas_dormir=brincadeiras_selecionadas_dormir
         )
 
-
+# FIM
 @app.route('/final', methods=['GET', 'POST'])
 def final():
     print(datetime.today())
